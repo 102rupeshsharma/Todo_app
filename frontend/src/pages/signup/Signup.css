@@ -1,0 +1,112 @@
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: transparent;
+}
+
+.signup-auth-box {
+  display: flex;
+  width: 650px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.signup-register-section {
+  width: 80%;
+  padding: 20px 30px;
+}
+
+.signup-login-section {
+  width: 80%;
+  background: #4A90E2;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 110px 5px 5px 110px;
+  font-family: 'Poppins';
+}
+
+.input-group {
+  position: relative;
+  margin: 20px 10px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  padding-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-group span {
+  position: absolute;
+  left: 215px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+}
+
+.password-checkbox {
+  color: #807e7e;
+  position: relative;
+  bottom: 14px;
+  left: 13px;
+  font-size: 14px;
+  display: flex;
+  padding: 0 1px;
+}
+
+.register-btn, .login-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.register-btn {
+  background: #4A90E2;
+  color: #fff;
+}
+
+.login-btn {
+  background: transparent;
+  border: 1px solid #fff;
+  width: 40%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: #fff;
+}
+
+.social-text {
+  margin-top: 10px;
+  color: gray;
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons button {
+  background: transparent;
+  border: 1px solid rgb(168, 168, 168);
+  padding: 10px;
+  margin: 10px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}

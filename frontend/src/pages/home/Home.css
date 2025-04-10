@@ -1,0 +1,65 @@
+.task-dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: grey; */
+}
+
+.new-task button {
+    margin: 0 20px;
+    height: 50px;
+    font-size: 18px;
+    padding: 15px;
+    gap: 7px;
+}
+
+.tasksPeriod {
+    display: flex;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; 
+  }
+
+.tasksPeriod button {
+    margin: 10px 10px;
+    border: none;
+    background-color: #4a90e2;
+    color: white;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: 0.3s ease;
+    height: 50px;
+    font-size: 18px;
+    gap: 5px;
+    transition: height 0.2s ease; 
+}
+
+button {
+    font-family: 'Poppins', sans-serif;
+    padding: 0.6rem 1.4rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: #4a90e2;
+    color: white;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.tasksPeriod button.active {
+    background-color: #007bff;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(18, 176, 224, 0.5);
+  }
