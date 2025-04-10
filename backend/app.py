@@ -28,6 +28,11 @@ def serialize_task(task):
             task[key] = str(task[key])
     return task
 
+@app.route('/')
+def index():
+    return "Backend is running!"
+
+
 @app.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
