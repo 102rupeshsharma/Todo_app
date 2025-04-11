@@ -34,7 +34,7 @@ const Header = () => {
     }, [dropdownOpen]);
 
     const handleLogout = () => {
-        localStorage.removeItem('user_id');
+        localStorage.clear();
         setUsername(null);
         setDropdownOpen(false);
         navigate('/login', { replace: true });

@@ -59,7 +59,7 @@ export const Login = () => {
 
 return (
 
-  <div className="container">
+  <div className="login-container">
 
     <div className={loading ? "login_container no_background" : "login_container"}>
       {loading ? (
@@ -68,16 +68,19 @@ return (
         </div>
       ) : (
         <>
-          <div className="auth-box">
+          <div className="login-auth-box">
 
-            <div className="login-section">
-              <p style={{ fontSize: "30px", margin: "10px 0px" }}>Welcome Back!</p>
-              <p style={{ fontSize: "15px", margin: "10px 0px" }}>Don't have an account?</p>
+            <div className="signup-info">
+              <p style={{ fontSize: "40px"}}>Hello, Welcome!</p>
+              <p style={{ fontSize: "15px"}}>Don't have an account?</p>
               <button onClick={() => navigate("/register")} className="login-btn">Register</button>
             </div>
 
-            <div className="register-section">
-              <p style={{ fontSize: "25px", marginTop: "10px", marginLeft: "100px" }}>Login</p>
+            <div className="login-section">
+              <div className="heading">
+              <p>Login</p>
+              </div>
+             
               <form onSubmit={handleLogin}>
 
                 <div className="input-group">
@@ -107,14 +110,16 @@ return (
 
                 </span>
 
-                <button className="register-btn" type="submit">login</button>
+                <div className="login-btn">
+                <button type="submit">login</button>
+                </div>
                 <p className="social-text">or register with social platforms</p>
               </form>
               <div className="social-icons">
-                <button><FontAwesomeIcon icon={faGoogle} /></button>
-                <button><FontAwesomeIcon icon={faFacebook} /></button>
-                <button><FontAwesomeIcon icon={faGithub} /></button>
-                <button><FontAwesomeIcon icon={faLinkedin} /></button>
+                <button><FontAwesomeIcon icon={faGoogle} style={{color: '#050505'}}/></button>
+                <button><FontAwesomeIcon icon={faFacebook} style={{color: '#050505'}}/></button>
+                <button><FontAwesomeIcon icon={faGithub} style={{color: '#050505'}}/></button>
+                <button><FontAwesomeIcon icon={faLinkedin} style={{color: '#050505'}}/></button>
               </div>
             </div>
             </div>

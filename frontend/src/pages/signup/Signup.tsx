@@ -61,8 +61,11 @@ export const Signup = () => {
   return (
     <div className="signup-container">
       <div className="signup-auth-box">
-        <div className="signup-register-section">
-          <p style={{ fontSize: "25px", marginTop: "10px", marginLeft: "100px" }}>Register</p>
+        <div className="signup-section">
+          <div className="heading" style={{display:'flex', justifyContent:'center', fontSize: "35px"}}>
+          <p>Register</p>
+          </div>
+
           <form onSubmit={handleRegister}>
 
             <div className="input-group">
@@ -82,25 +85,28 @@ export const Signup = () => {
             <span className='password-checkbox'>
               <input type='checkbox' checked={showPassword}
                 onChange={() => setShowPassword(!showPassword)} />
-              <label style={{ paddingLeft: "2px" }}>Show password</label>
+              <label >Show password</label>
             </span>
 
-            <button className="register-btn" type="submit" >Register</button>
-            <p className="social-text">or register with social platforms</p>
+            <div className="register-btn">
+            <button type="submit" >Register</button>
+            </div>
+            
             </form>
+            <p className="social-text">or register with social platforms</p>
 
             <div className="social-icons">
-              <button><FontAwesomeIcon icon={faGoogle} /></button>
-              <button><FontAwesomeIcon icon={faFacebook} /></button>
-              <button><FontAwesomeIcon icon={faGithub} /></button>
-              <button><FontAwesomeIcon icon={faLinkedin} /></button>
+              <button><FontAwesomeIcon icon={faGoogle} style={{color: '#050505'}} /></button>
+              <button><FontAwesomeIcon icon={faFacebook} style={{color: '#050505'}} /></button>
+              <button><FontAwesomeIcon icon={faGithub} style={{color: '#050505'}} /></button>
+              <button><FontAwesomeIcon icon={faLinkedin} style={{color: '#050505'}} /></button>
             </div>
         </div>
 
-        <div className="signup-login-section">
-          <p style={{ fontSize: "30px", margin: "10px 0px" }}>Hello, Welcome!</p>
-          <p style={{ fontSize: "15px", margin: "10px 0px" }}>Already have an account?</p>
-          <button onClick={() => navigate("/login")} className="login-btn">Login</button>
+        <div className="login-info">
+          <p style={{ fontSize: "40px"}}>Welcome Back!</p>
+          <p style={{ fontSize: "15px"}}>Already have an account?</p>
+          <button onClick={() => navigate("/login")} >Login</button>
         </div>
 
       </div>
