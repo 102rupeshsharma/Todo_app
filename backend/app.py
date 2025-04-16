@@ -35,37 +35,54 @@ def index():
 
 @app.route('/register', methods=['POST'])
 def register():
-    data = request.get_json()
-    username = data.get('username')
-    email = data.get('email')
-    password = data.get('password')
-
-    if not username or not email or not password:
-        return jsonify({"message": "All fields are required"}), 400
-
-    hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
-
     try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"message": "No input data received"}), 400
+
+        username = data.get('username')
+        email = data.get('email')
+        password = data.get('password')
+
+        if not username or not email or not password:
+            return jsonify({"message": "All fields are required"}), 400
+
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
         connection = connect_db()
         with connection.cursor() as cursor:
+            # Create table if not exists
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS users (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    username VARCHAR(255) NOT NULL,
+                    email VARCHAR(255) NOT NULL UNIQUE,
+                    password_hash VARCHAR(255) NOT NULL,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                );
+            """)
 
+            # Check if email exists
             cursor.execute("SELECT * FROM users WHERE email = %s", (email,))
             if cursor.fetchone():
                 return jsonify({"message": "Email already registered"}), 409
 
+            # Insert user
             sql = "INSERT INTO users (username, email, password_hash) VALUES (%s, %s, %s)"
             cursor.execute(sql, (username, email, hashed_password.decode('utf-8')))
             connection.commit()
 
-            user_id = cursor.lastrowid
+            return jsonify({"message": "User registered successfully"}), 201
 
-        return jsonify({"message": "User registered successfully"}), 201
-        
-    except pymysql.MySQLError as e:
-        print("Error occurred while inserting user: ", str(e))
-        return jsonify({"message": "User registration failed", "error": str(e)}), 500
+    except Exception as e:
+        print("Error:", e)
+        return jsonify({"message": "Internal Server Error", "error": str(e)}), 500
     finally:
-        connection.close()
+        try:
+            connection.close()
+        except:
+            pass
+
     
 @app.route('/login', methods=['POST'])
 def login_user():
