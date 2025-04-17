@@ -39,24 +39,26 @@ export const Signup = () => {
         body: JSON.stringify(form)
       });
   
-      const data = await response.json();
+      let data;
+      try {
+        data = await response.json(); // this line fails if response is empty
+      } catch (jsonErr) {
+        throw new Error("Invalid JSON response from server");
+      }
   
       if (!response.ok) {
         throw new Error(data.message || "Registration failed");
       }
   
-      if (data.message === "User registered successfully") {
-        toast.success("Registration Successful!");
-        navigate('/login');
-      } else {
-        toast.error(data.message || "Failed to register!");
-      }
+      toast.success("Registration Successful!");
+      navigate('/login');
   
     } catch (error: any) {
       console.error(error);
       toast.error(error.message || "Error in registration!");
     }
   };
+  
   
   return (
     <div className="signup-container">
