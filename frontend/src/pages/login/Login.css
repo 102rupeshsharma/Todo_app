@@ -29,9 +29,9 @@
  }
 
  .heading {
-  display: flex;
-  justify-content: center;
-  font-size: 35px;
+   display: flex;
+   justify-content: center;
+   font-size: 35px;
  }
 
  .input-group {
@@ -96,15 +96,23 @@
    align-items: center;
    flex-wrap: wrap;
    margin-top: 10px;
+   width: 95%;
+   border: 5px;
  }
 
- .social-icons button {
-   font-size: 1.2rem;
-   padding: 0.8rem;
-   border-radius: 0.5rem;
-   border: 1.5px solid #aaa;
-   background: transparent;
+ .google-btn {
+   display: flex;
+   justify-content: center;
+   width: 100%;
+   border-radius: 4px;
+   font-size: 12px;
    cursor: pointer;
+   color: grey;
+ }
+
+ .google-btn img {
+   height: 25px;
+   margin-right: 10px;
  }
 
 
@@ -135,4 +143,3 @@
    justify-content: center;
    font-size: 20px;
  }
-

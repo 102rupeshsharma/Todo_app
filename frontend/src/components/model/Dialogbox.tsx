@@ -64,6 +64,7 @@ const Dialogbox: React.FC<DialogProps> = ({
     const user_id = localStorage.getItem("user_id");
 
     if (!user_id) return alert("Login required");
+    if (!taskTitle || !description) return alert("Please fill out all fields.");
 
     const taskData = {
       user_id: Number(user_id),
@@ -77,7 +78,7 @@ const Dialogbox: React.FC<DialogProps> = ({
     try {
       const url = taskToEdit
         ? `${apiUrl}/update_task/${taskToEdit.id}`
-        : `${apiUrl}tasks`;
+        : `${apiUrl}/tasks`;
 
       const method = taskToEdit ? "PUT" : "POST";
 
@@ -103,7 +104,7 @@ const Dialogbox: React.FC<DialogProps> = ({
 
   return (
     <Dialog open={open} onClose={handleClose}>
-      <DialogTitle style={{ display: "flex", justifyContent: "center" }}>
+      <DialogTitle style={{ display: "flex", justifyContent: "center", color:"black" }}>
         {taskToEdit ? "Edit Task" : "New Task"}
       </DialogTitle>
 
@@ -149,8 +150,8 @@ const Dialogbox: React.FC<DialogProps> = ({
         </div>
       </DialogContent>
 
-      <DialogActions sx={{ display: "flex", justifyContent: "center" }}>
-        <Button onClick={handleSubmit} color="secondary">
+      <DialogActions sx={{ display: "flex", justifyContent: "center"}}>
+        <Button onClick={handleSubmit} className="submit-btn">
           Submit
         </Button>
       </DialogActions>

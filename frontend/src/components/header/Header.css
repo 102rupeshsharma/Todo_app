@@ -54,11 +54,12 @@ header {
   color: #ff4e4e;
 }
 
-.login_btn {
-  padding: 0.5rem 1rem;
-  background: #2d63d9;
-  color: white;
+.login-button {
+  background-color: transparent !important;
+  color: rgb(45, 99, 217);
+  font-weight: bold;
   border-radius: 6px;
   font-weight: 500;
   text-decoration: none;
+  font-size: 24px;
 }
