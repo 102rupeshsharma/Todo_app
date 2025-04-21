@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
-import { faGoogle} from '@fortawesome/free-brands-svg-icons';
 import { SyntheticEvent } from '../../interfaces/Todo.interface';
 import { IRegisterForm } from './Signup.interface';
 import './Signup.css';

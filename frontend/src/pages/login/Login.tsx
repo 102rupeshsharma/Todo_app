@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
 import { SyntheticEvent } from "../../interfaces/Todo.interface";
 import './Login.css'
-import { FaGoogle } from 'react-icons/fa';
 
 export const Login = () => {
 
